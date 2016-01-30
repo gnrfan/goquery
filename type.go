@@ -5,7 +5,7 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-
+	"log"
 	"golang.org/x/net/html"
 )
 
@@ -60,7 +60,7 @@ func NewDocumentFromResponse(res *http.Response) (*Document, error) {
 	}
 	defer func() {
 	    res.Body.Close()
-	    fmt.Println("Closing HTTP connection.")
+	    log.Println("Closing HTTP connection.")
 	}()
 	if res.Request == nil {
 		return nil, errors.New("Response.Request is nil")
