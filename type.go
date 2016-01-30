@@ -60,7 +60,7 @@ func NewDocumentFromResponse(res *http.Response) (*Document, error) {
 	}
 	defer func() {
 	    res.Body.Close()
-	    log.Println("Closing HTTP connection.")
+	    fmt.Println("Closing HTTP connection.")
 	}()
 	if res.Request == nil {
 		return nil, errors.New("Response.Request is nil")
